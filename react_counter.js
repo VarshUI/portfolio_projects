@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   const [counter, setCounter] = useState(0); //using object destructuring
   //whenever there is a "use" as prefix then it's called a hook
-
+useEffect(()=>{alert('You have set the counter into' + counter)},[counter])
   return (
     <div className="App">
       <button onClick={() => setCounter((prevCount) => prevCount - 1)}>
