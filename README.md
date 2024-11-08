@@ -1,1 +1,1 @@
-This app hasa storage of a million movies and will be displayed in search
+This app has a storage of a million movies and will be displayed in search
