@@ -1,0 +1,31 @@
+import { useEffect, useState } from "react";
+
+function App() {
+  const [author, setAuthor] = useState("");
+  const [quote, setQuote] = useState("");
+  const quoteGen = async () => {
+    try {
+      const response = await fetch("https://api.quotable.io/random");
+      const data = await response.json();
+      const quoteText = data.content;
+      const quoteAuthor = data.author;
+      setQuote(quoteText);
+      setAuthor(quoteAuthor);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    quoteGen();
+  }, []);
+  return (
+    <div>
+      <h1>Quote App</h1>
+      <p>{quote}</p>
+      <p>{author}</p>
+      <button onClick={quoteGen}>Click to generate</button>
+    </div>
+  );
+}
+
+export default App;
